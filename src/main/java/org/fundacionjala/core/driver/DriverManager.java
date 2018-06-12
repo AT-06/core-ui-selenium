@@ -1,7 +1,5 @@
 package org.fundacionjala.core.driver;
 
-
-import org.apache.log4j.PropertyConfigurator;
 import org.fundacionjala.core.util.PropertiesManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * Class that applies Singleton pattern to instance WebDriver only once.
  */
 public final class DriverManager {
-    private static final int EXPLICIT_TIME = 60;
+    private static int EXPLICIT_TIME = 60;
     private static DriverManager driverManager;
     private WebDriver driver;
     private WebDriverWait wait;
@@ -22,10 +20,9 @@ public final class DriverManager {
      * Constructor, private to apply singleton pattern.
      */
     private DriverManager() {
-        PropertyConfigurator.configure("log4j.properties");
         DriverType driverType = DriverType.valueOf(PropertiesManager.getInstance().getBrowser());
         driver = DriverFactory.getDriverManager(driverType);
-        wait = new WebDriverWait(driver, EXPLICIT_TIME);
+        wait = new WebDriverWait(driver, PropertiesManager.getInstance().getExplicitTime());
     }
 
     /**
@@ -82,6 +79,4 @@ public final class DriverManager {
     public void backPreviousWait() {
         this.setImplicitTime(0);
     }
-
-
 }

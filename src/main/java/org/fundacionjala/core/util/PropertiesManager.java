@@ -61,6 +61,15 @@ public final class PropertiesManager {
     }
 
     /**
+     * Get explicit time.
+     *
+     * @return int explicit Time.
+     */
+    public int getExplicitTime() {
+        return Integer.parseInt(getEnvValue("explicitWait"));
+    }
+
+    /**
      * Gets Url Login.
      *
      * @return String url login.
