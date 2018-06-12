@@ -5,7 +5,6 @@ import org.apache.log4j.Logger;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Objects;
 import java.util.Properties;
 
 /**
@@ -60,6 +59,15 @@ public final class PropertiesManager {
         return property == null ? properties.getProperty(var) : property;
     }
 
+    /**
+     * Method to get token to use API.
+     *
+     * @return the token read from properties file.
+     */
+    public String getAPIToken() {
+        return getEnvValue("APIToken");
+    }
+    
     /**
      * Get explicit time.
      *
