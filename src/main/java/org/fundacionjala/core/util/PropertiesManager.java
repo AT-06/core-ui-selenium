@@ -14,7 +14,7 @@ import java.util.Properties;
  */
 public final class PropertiesManager {
     private static PropertiesManager propertiesManager;
-    private Properties prop;
+    private Properties properties;
     private static final Logger LOGGER = Logger.getLogger(PropertiesManager.class.getName());
 
 
@@ -41,9 +41,9 @@ public final class PropertiesManager {
      * Initialize Properties object.
      */
     private void init() {
-        prop = new Properties();
+        properties = new Properties();
         try (InputStream input = new FileInputStream("gradle.properties")) {
-            prop.load(input);
+            properties.load(input);
         } catch (IOException e) {
             LOGGER.error(e.getMessage(), e);
         }
@@ -57,7 +57,7 @@ public final class PropertiesManager {
      */
     private String getEnvValue(final String var) {
         String property = System.getProperty(var);
-        return !Objects.isNull(property) ? property : prop.getProperty(var);
+        return property == null ? properties.getProperty(var) : property;
     }
 
     /**
