@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 /**
  * Class CommonWebActions.
@@ -94,6 +93,15 @@ public final class CommonWebActions {
      */
     public static void jsClickElement(final WebElement element) {
         waitWebElementToBeClickable(element);
+        jsExecutorScript(element);
+    }
+
+    /**
+     * Method to JClick any element.
+     *
+     * @param element to click.
+     */
+    public static void jsExecutorScript(final WebElement element) {
         JAVASCRIPT_EXECUTOR.executeScript("arguments[0].click();", element);
     }
 
@@ -190,20 +198,6 @@ public final class CommonWebActions {
     }
 
     /**
-     * Method to close message displayed.
-     */
-    public static void closeMessageLighting() {
-        try {
-            if (WEB_DRIVER.findElement(By.id("lexNoThanks")).isDisplayed()) {
-                WEB_DRIVER.findElement(By.id("lexNoThanks")).click();
-                WEB_DRIVER.findElement(By.id("tryLexDialogX")).click();
-            }
-        } catch (NoSuchElementException e) {
-
-        }
-    }
-
-    /**
      * This method press enter key to web element.
      *
      * @param webElement is the WebElement.
@@ -211,5 +205,4 @@ public final class CommonWebActions {
     public static void pressEnter(final WebElement webElement) {
         webElement.sendKeys(Keys.ENTER);
     }
-
 }
