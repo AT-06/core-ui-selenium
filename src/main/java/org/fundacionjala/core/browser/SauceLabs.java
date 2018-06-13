@@ -1,5 +1,6 @@
-package org.fundacionjala.core.driver;
+package org.fundacionjala.core.browser;
 
+import org.fundacionjala.core.util.PropertiesInput;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
@@ -26,10 +27,10 @@ public class SauceLabs extends RemoteBrowserConnection implements Browser {
     @Override
     public DesiredCapabilities setCapabilities() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(BROWSER_NAME, PROPERTIES_MANAGER.getRemoteBrowserName());
-        capabilities.setCapability(PLATFORM, PROPERTIES_MANAGER.getRemotePlatform());
-        capabilities.setCapability(BROWSER_VERSION, PROPERTIES_MANAGER.getRemoteBrowserVersion());
-        capabilities.setCapability(RESOLUTION, PROPERTIES_MANAGER.getRemoteResolution());
+        capabilities.setCapability(BROWSER_NAME, PROPERTIES_MANAGER.getProperties(PropertiesInput.REMOTE_BROWSER_NAME));
+        capabilities.setCapability(PLATFORM, PROPERTIES_MANAGER.getProperties(PropertiesInput.REMOTE_PLATAFORM));
+        capabilities.setCapability(BROWSER_VERSION, PROPERTIES_MANAGER.getProperties(PropertiesInput.REMOTE_BROSER_VERSION));
+        capabilities.setCapability(RESOLUTION, PROPERTIES_MANAGER.getProperties(PropertiesInput.REMOTE_RESOLUTION));
         return capabilities;
     }
 }

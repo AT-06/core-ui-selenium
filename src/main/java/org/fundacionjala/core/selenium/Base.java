@@ -1,4 +1,4 @@
-package org.fundacionjala.core.common;
+package org.fundacionjala.core.selenium;
 
 import org.fundacionjala.core.driver.DriverManager;
 import org.openqa.selenium.WebDriver;

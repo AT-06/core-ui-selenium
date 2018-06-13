@@ -1,5 +1,6 @@
-package org.fundacionjala.core.driver;
+package org.fundacionjala.core.browser;
 
+import org.fundacionjala.core.util.PropertiesInput;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
@@ -26,11 +27,11 @@ public class BrowserStack extends RemoteBrowserConnection implements Browser {
     @Override
     public DesiredCapabilities setCapabilities() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(BROWSER, PROPERTIES_MANAGER.getRemoteBrowserName());
-        capabilities.setCapability(BROWSER_VERSION, PROPERTIES_MANAGER.getRemoteBrowserVersion());
-        capabilities.setCapability(OS, PROPERTIES_MANAGER.getRemoteOS());
-        capabilities.setCapability(OS_VERSION, PROPERTIES_MANAGER.getRemoteOSVersion());
-        capabilities.setCapability(RESOLUTION, PROPERTIES_MANAGER.getRemoteResolution());
+        capabilities.setCapability(BROWSER, PROPERTIES_MANAGER.getProperties(PropertiesInput.REMOTE_BROWSER_NAME));
+        capabilities.setCapability(BROWSER_VERSION, PROPERTIES_MANAGER.getProperties(PropertiesInput.REMOTE_BROSER_VERSION));
+        capabilities.setCapability(OS, PROPERTIES_MANAGER.getProperties(PropertiesInput.REMOTE_OS));
+        capabilities.setCapability(OS_VERSION, PROPERTIES_MANAGER.getProperties(PropertiesInput.REMOTE_OS_VERSION));
+        capabilities.setCapability(RESOLUTION, PROPERTIES_MANAGER.getProperties(PropertiesInput.REMOTE_RESOLUTION));
         return capabilities;
     }
 }
