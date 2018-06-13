@@ -1,6 +1,7 @@
-package org.fundacionjala.core.driver;
+package org.fundacionjala.core.browser;
 
 import org.apache.log4j.Logger;
+import org.fundacionjala.core.util.PropertiesInput;
 import org.fundacionjala.core.util.PropertiesManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -14,8 +15,8 @@ import java.net.URL;
  */
 public abstract class RemoteBrowserConnection implements Browser {
     protected static final PropertiesManager PROPERTIES_MANAGER = PropertiesManager.getInstance();
-    protected static final String USERNAME = PROPERTIES_MANAGER.getRemoteUserName();
-    protected static final String ACCESS_KEY = PROPERTIES_MANAGER.getRemoteAccessKey();
+    protected static final String USERNAME = PROPERTIES_MANAGER.getProperties(PropertiesInput.REMOTE_USER_NAME);
+    protected static final String ACCESS_KEY = PROPERTIES_MANAGER.getProperties(PropertiesInput.REMOTE_ACCESS_KEY);
     protected static final String RESOLUTION = "resolution";
     private final String url;
     private static final Logger LOGGER = Logger.getLogger(RemoteBrowserConnection.class.getName());

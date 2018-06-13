@@ -16,7 +16,6 @@ public final class PropertiesManager {
     private Properties properties;
     private static final Logger LOGGER = Logger.getLogger(PropertiesManager.class.getName());
 
-
     /**
      * Constructor, private to apply singleton pattern.
      */
@@ -60,146 +59,12 @@ public final class PropertiesManager {
     }
 
     /**
-     * Method to get token to use API.
+     * Get PropertiesInputs.
      *
-     * @return the token read from properties file.
+     * @param prop a Enum
+     * @return String Enum
      */
-    public String getAPIToken() {
-        return getEnvValue("APIToken");
-    }
-    
-    /**
-     * Get explicit time.
-     *
-     * @return int explicit Time.
-     */
-    public int getExplicitTime() {
-        return Integer.parseInt(getEnvValue("explicitWait"));
-    }
-
-    /**
-     * Gets Url Login.
-     *
-     * @return String url login.
-     */
-    public String getUrlLogin() {
-        return getEnvValue("urlLogin");
-    }
-
-    /**
-     * Getter of username.
-     *
-     * @return String username.
-     */
-    public String getUsername() {
-        return getEnvValue("user");
-    }
-
-    /**
-     * Getter of password.
-     *
-     * @return String password.
-     */
-    public String getPassword() {
-        return getEnvValue("password");
-    }
-
-    /**
-     * Getter of theme.
-     *
-     * @return String theme.
-     */
-    public String getTheme() {
-        return getEnvValue("theme");
-    }
-
-    /**
-     * Gets browser.
-     *
-     * @return string browser.
-     */
-    public String getBrowser() {
-        return getEnvValue("browser");
-    }
-
-    /**
-     * Getter of docker.
-     *
-     * @return string docker URL.
-     */
-    public String getDockerUrl() {
-        return getEnvValue("dockerURL");
-    }
-
-    /**
-     * Gets remote user name.
-     *
-     * @return string remote user name.
-     */
-    public String getRemoteUserName() {
-        return getEnvValue("remoteUserName");
-    }
-
-    /**
-     * Gets remote access key.
-     *
-     * @return string remote access key.
-     */
-    public String getRemoteAccessKey() {
-        return getEnvValue("remoteAccessKey");
-    }
-
-    /**
-     * Gets remote Browser Name .
-     *
-     * @return string remote Browser Name.
-     */
-    public String getRemoteBrowserName() {
-        return getEnvValue("remoteBrowserName");
-    }
-
-    /**
-     * Gets remote Version.
-     *
-     * @return string remote Version.
-     */
-    public String getRemoteBrowserVersion() {
-        return getEnvValue("remoteBrowserVersion");
-    }
-
-    /**
-     * Gets remote platform.
-     *
-     * @return string remote platform.
-     */
-    public String getRemotePlatform() {
-        return getEnvValue("remotePlatform");
-    }
-
-    /**
-     * Gets remote Resolution.
-     *
-     * @return string remote Resolution.
-     */
-    public String getRemoteResolution() {
-        return getEnvValue("remoteResolution");
-    }
-
-    /**
-     * Gets remote operative system.
-     *
-     * @return string remote operative system.
-     */
-    public String getRemoteOS() {
-        return getEnvValue("remoteOS");
-    }
-
-    /**
-     * Gets remote operative system.
-     *
-     * @return string remote operative system.
-     */
-    public String getRemoteOSVersion() {
-        return getEnvValue("remoteOSVersion");
+    public String getProperties(final PropertiesInput prop) {
+        return getEnvValue(prop.getPropertiesName());
     }
 }

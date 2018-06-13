@@ -1,6 +1,13 @@
 package org.fundacionjala.core.driver;
 
 
+import org.fundacionjala.core.browser.Browser;
+import org.fundacionjala.core.browser.BrowserStack;
+import org.fundacionjala.core.browser.ChromeBrowser;
+import org.fundacionjala.core.browser.DockerChromeBrowser;
+import org.fundacionjala.core.browser.DockerFirefoxBrowser;
+import org.fundacionjala.core.browser.FirefoxBrowser;
+import org.fundacionjala.core.browser.SauceLabs;
 import org.openqa.selenium.WebDriver;
 
 import java.util.EnumMap;
