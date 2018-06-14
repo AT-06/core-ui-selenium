@@ -149,6 +149,26 @@ public final class CommonWebActions {
     }
 
     /**
+     * Method for set WebElement.
+     *
+     * @param element WebElement.
+     * @param text    String.
+     */
+    public static void setCheckButton(final WebElement element, final String text) {
+        waitWebElementVisible(element);
+        element.sendKeys(text);
+    }
+
+    /**
+     * Method for ClickElement.
+     *
+     * @param element WebElement.
+     */
+    public static void setCheckButton(final WebElement element) {
+        waitWebElementVisible(element).click();
+    }
+
+    /**
      * @param element a checkbox element.
      * @param value   a boolean value.
      */
