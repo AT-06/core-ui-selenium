@@ -154,7 +154,7 @@ public final class CommonWebActions {
      * @param element WebElement.
      * @param text    String.
      */
-    public static void setCheckButton(final WebElement element, final String text) {
+    public static void setComboBox(final WebElement element, final String text) {
         waitWebElementVisible(element);
         element.sendKeys(text);
     }
